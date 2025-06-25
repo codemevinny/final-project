@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;         
+  background: #0e1116 center / cover fixed no-repeat;
+  color: #e0e6ed;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {                                      
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center 60%,
+    rgba(27, 108, 168, 0.12) 0%,
+    transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("images/background.png") center / 600px repeat;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.25rem, 3vw, 2.1rem); }
+h3 { font-size: clamp(1rem, 2.5vw, 1.4rem); }
+
+.page-title,
+.site-header h1 {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+a {
+  color: #2592e6;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+a:hover {
+  color: #1b6ca8;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 1rem 0 2rem;
+  font-size: 2rem;
+  padding-left: 1.6rem;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+.welcome-title {
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+  font-size: 4rem;
+  letter-spacing: 0.07em;
+}
+
+.enter-btn {
+  display: inline-flex;
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  justify-self: center; 
+
+  padding: 0.75rem 0.75rem;
+  font-size: 1.6rem;
+  border: none;
+  color: #e0e6ed;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.enter-btn:hover {
+  transform: scale(1.4);
+  color: #e0e6ed;
+}
+
+#hub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     
+  align-items: center;   
+  min-height: 100vh;
+}
+#hub .menu {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+.menu-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.menu-tile {
+  position: relative;
+  width: 240px;
+  aspect-ratio: 1 / 1;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a1e24;
+  border: 1px solid rgba(37, 146, 230, 0.15);
+  transition: transform 180ms ease;
+}
+.menu-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8) contrast(1.05);
+  transition: filter 180ms ease;
+}
+.menu-tile .tile-label {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.6rem 0;
+  text-align: center;
+  font-size: 1.05rem;
+  background: rgba(0, 0, 0, 0.45);
+}
+.menu-tile:hover {
+  transform: translateY(-6px) scale(1.03);
+}
+.menu-tile:hover img {
+  filter: brightness(1) contrast(1.15);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(37, 146, 230, 0); }
+  50%      { box-shadow: 0 0 18px rgba(37, 146, 230, 0.6); }
+}
+.menu-tile:hover {
+  animation: pulseGlow 0.9s ease-in-out infinite alternate;
+}
+
+#noble-roster {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+#noble-roster .back-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding-left: 0;
+}
+/* card grid */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+.spartan-card {
+  background: #1a1e24;
+  border: 1px solid rgba(37, 146, 230, 0.15);
+  border-radius: 1rem;
+  overflow: hidden;
+  width: 270px;
+  transition: transform 180ms ease;
+}
+.spartan-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: top center;
+  filter: brightness(0.9) contrast(1.05);
+  transition: filter 180ms ease;
+}
+.card-info {
+  padding: 1rem;
+}
+.spartan-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  animation: pulseGlow 0.9s ease-in-out infinite alternate;
+}
+.spartan-card:hover img {
+  filter: brightness(1.05) contrast(1.2);
+}
+
+.detail-wrapper,
+.covenant-wrapper,
+.reach-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.portrait {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.portrait img {
+  width: 320px;
+  border-radius: 1rem;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.6);
+  object-position: top center;
+}
+
+.covenant-hero,
+.reach-hero {
+  margin: 0;
+}
+.covenant-hero img,
+.reach-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.covenant-hero,
+.reach-hero {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  transform: translateX(-50%);
+  margin-bottom: 2rem;
+}
+
+.detail-wrapper,
+.covenant-wrapper,
+.reach-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  line-height: 2rem;
+  text-align: left;
+}
+
+#spartan-detail,
+#spartan-detail .detail-wrapper,
+#spartan-detail .detail-wrapper * {
+  text-align: left;
+}
+
+#spartan-detail p {
+  margin-top: 1rem;
+}
+
+.bio p + p,
+.timeline li + li,
+.hierarchy ul li + li,
+.objectives ul li + li {
+  margin-top: 0.8rem;
+  text-align: left,
+}
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+.timeline ol {
+  list-style: decimal-leading-zero;
+}
+.timeline li {
+  padding-left: 0.6rem;
+  border-left: 2px solid #1b6ca8;
+  margin-left: 1rem;
+}
+
+@media (max-width: 600px) {
+  .menu-tile { width: 180px; }
+  .spartan-card { width: 200px; }
+  .portrait img { width: 220px; }
+}
