@@ -200,7 +200,7 @@ a:hover {
   left: 1rem;
   padding-left: 0;
 }
-/* card grid */
+
 .card-grid {
   display: flex;
   flex-wrap: wrap;
@@ -213,7 +213,7 @@ a:hover {
   border: 1px solid rgba(37, 146, 230, 0.15);
   border-radius: 1rem;
   overflow: hidden;
-  width: 270px;
+  width: 300px;
   transition: transform 180ms ease;
 }
 .spartan-card img {
